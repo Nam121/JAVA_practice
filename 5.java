@@ -4,7 +4,7 @@ class AreaOfCircle {
         
 		double radius = 5.0;
         
-		double area = Math.PI * radius * radius;
+		double area = 3.14 * radius * radius;
         
 		System.out.println("Area: " + area);
     }
