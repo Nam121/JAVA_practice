@@ -1,33 +1,31 @@
 import java.util.Scanner;
 
-
-class DaysInMonth {
+class Days {
 
     	public static void main(String[] args) {
+    
+	    	Scanner scanner = new Scanner(System.in);
 
-		Scanner scanner = new Scanner(System.in);
+		System.out.print("enter year: ");
 
-        
-		System.out.print("Enter the year: ");
-       
-	       	int year = scanner.nextInt();
+		int year = scanner.nextInt();
+
+
+		System.out.print("enter month (1-12): ");
+
+		int month = scanner.nextInt();
 	
-
-		System.out.print("Enter the month (1-12): ");
-       
-	       	int month = scanner.nextInt();
-
 
 		int days = 0;
 
-
-		if (month >= 1 && month <= 12) {
         
-		    	if (month == 2) {
-               
-			       	if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
-            
-					days = 29;
+		switch (month) {
+
+	    		case 2:
+
+				if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+
+		    			days = 29;
 
 				} else {
 
@@ -35,25 +33,32 @@ class DaysInMonth {
 
 				}
 
-	    		} else if (month == 4 || month == 6 || month == 9 || month == 11) {
+				break;
 
-				days= 30;
+	    		case 4: case 6: case 9: case 11:
 
-	    		} else {
+				days = 30;
 
-				days= 31;
+				break;
 
-	    		}
+	    		default:
+
+				days = 31;
+
+				break;
+
+		}
 
 
-	    		System.out.println("Number of days in the specified month: " + days);
+		if (month >= 1 && month <= 12) {
+
+	    		System.out.println("Number of days: " + days);
 
 		} else {
 
-	    		System.out.println("Invalid month value. Month must be between 1 and 12.");
+	    		System.out.println("Invalid month value.");
 
-		}      
-   
-       	}
+		}
+    }
 }
 
